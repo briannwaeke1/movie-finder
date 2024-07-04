@@ -1,3 +1,5 @@
+/// <reference types="vitest" />
+
 import react from "@vitejs/plugin-react";
 import { defineConfig, loadEnv } from "vite";
 
@@ -12,5 +14,10 @@ export default defineConfig(({ mode }) => {
       __MOVIE_API_KEY__: JSON.stringify(env.VITE_THE_MOVIE_API_KEY),
     },
     plugins: [react()],
+    test: {
+      globals: true,
+      environment: "jsdom",
+      setupFiles: "./src/tests/setup.ts",
+    },
   };
 });

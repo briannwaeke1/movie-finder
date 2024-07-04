@@ -4,8 +4,8 @@ import { MovieModal } from "../MovieModal";
 import styles from "./MovieCard.module.scss";
 
 export const MovieCard = ({ movie }: { movie: Movie }) => {
-  const [showModal, setShowModal] = useState<boolean>(false);
-  const [watched, setWatched] = useState<boolean>(false);
+  const [showModal, setShowModal] = useState(false);
+  const [watched, setWatched] = useState(false);
   const { title, poster_path } = movie;
 
   const handleShowOverview = () => {
@@ -13,7 +13,12 @@ export const MovieCard = ({ movie }: { movie: Movie }) => {
   };
   return (
     <div className={styles.card_container}>
-      <p className={styles.title}>{title}</p>
+      <p
+        className={styles.title}
+        data-testid="movie-title"
+      >
+        {title}
+      </p>
       {poster_path === null ? (
         <p>No image available</p>
       ) : (
@@ -21,6 +26,7 @@ export const MovieCard = ({ movie }: { movie: Movie }) => {
           src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
           alt={title}
           className={styles.image}
+          data-testid="movie-poster"
         />
       )}
 
@@ -28,6 +34,7 @@ export const MovieCard = ({ movie }: { movie: Movie }) => {
         <FaInfoCircle
           className={styles.info_icon}
           onClick={handleShowOverview}
+          data-testid="info-icon"
         />
         <FaPlayCircle
           className={watched ? styles.watched_icon : styles.not_watched_icon}
