@@ -10,6 +10,7 @@ export const MovieList = ({ movies }: { movies: Movie[] }) => {
           movie={movie}
         />
       ))}
+      {movies.length === 0 && <p>No movies found</p>}
     </div>
   );
 };

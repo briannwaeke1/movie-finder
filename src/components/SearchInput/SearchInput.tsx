@@ -1,3 +1,4 @@
+import { ChangeEvent } from "react";
 import styles from "./SearchInput.module.scss";
 
 export const SearchInput = ({
@@ -5,7 +6,7 @@ export const SearchInput = ({
   onChange,
 }: {
   searchQuery: string;
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
 }) => {
   return (
     <div className={styles.search_input_container}>
