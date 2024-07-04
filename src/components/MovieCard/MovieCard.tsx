@@ -6,7 +6,7 @@ import styles from "./MovieCard.module.scss";
 export const MovieCard = ({ movie }: { movie: Movie }) => {
   const [showModal, setShowModal] = useState<boolean>(false);
   const [watched, setWatched] = useState<boolean>(false);
-  const { title, poster_path, overview, release_date } = movie;
+  const { title, poster_path } = movie;
 
   const handleShowOverview = () => {
     setShowModal(true);
@@ -37,8 +37,7 @@ export const MovieCard = ({ movie }: { movie: Movie }) => {
       {showModal && (
         <MovieModal
           open={setShowModal}
-          overviewText={overview}
-          releaseDate={release_date}
+          movie={movie}
         />
       )}
     </div>

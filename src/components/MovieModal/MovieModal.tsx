@@ -2,14 +2,13 @@ import { FaTimes } from "react-icons/fa";
 import styles from "./MovieModal.module.scss";
 
 export const MovieModal = ({
-  overviewText,
+  movie,
   open,
-  releaseDate,
 }: {
-  overviewText: string;
-  releaseDate: string;
+  movie: Movie;
   open: (showModal: boolean) => void;
 }) => {
+  const { overview, release_date, title } = movie;
   return (
     <div
       className={styles.modal_container}
@@ -24,9 +23,10 @@ export const MovieModal = ({
           onClick={() => open(false)}
         />
         <p className={styles.title}>Movie Overview</p>
-        <p className={styles.release_date}>Release Date: {releaseDate}</p>
+        <p className={styles.title}>{title}</p>
+        <p className={styles.release_date}>Release Date: {release_date}</p>
         <div className={styles.content}>
-          <p className={styles.overview}>{overviewText}</p>
+          <p className={styles.overview}>{overview}</p>
         </div>
       </div>
     </div>
