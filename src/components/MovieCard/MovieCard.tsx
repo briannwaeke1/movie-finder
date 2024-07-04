@@ -26,11 +26,11 @@ export const MovieCard = ({ movie }: { movie: Movie }) => {
 
       <div className={styles.actions_container}>
         <FaInfoCircle
-          className={styles.info}
+          className={styles.info_icon}
           onClick={handleShowOverview}
         />
         <FaPlayCircle
-          className={watched ? styles.watched : styles.not_watched}
+          className={watched ? styles.watched_icon : styles.not_watched_icon}
           onClick={() => setWatched(!watched)}
         />
       </div>

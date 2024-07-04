@@ -11,7 +11,6 @@
   border-radius: 18px;
   overflow: hidden;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-  cursor: pointer;
 
   &:hover {
     .image {
@@ -49,18 +48,21 @@
   justify-content: space-around;
 }
 
-.watched {
+.watched_icon {
   color: #00ff00;
   font-size: 1.5rem;
+  cursor: pointer;
 }
 
-.not_watched {
+.not_watched_icon {
   color: #ffffff;
   opacity: 0.3;
   font-size: 1.5rem;
+  cursor: pointer;
 }
 
-.info {
+.info_icon {
   color: #ffffff;
   font-size: 1.5rem;
+  cursor: pointer;
 }

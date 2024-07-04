@@ -1,4 +1,5 @@
 import { ChangeEvent } from "react";
+import { FaTimes } from "react-icons/fa";
 import styles from "./SearchInput.module.scss";
 
 export const SearchInput = ({
@@ -17,6 +18,14 @@ export const SearchInput = ({
         className={styles.search_input}
         onChange={onChange}
       />
+      {searchQuery.length > 0 && (
+        <FaTimes
+          className={styles.clear_icon}
+          onClick={() =>
+            onChange({ target: { value: "" } } as ChangeEvent<HTMLInputElement>)
+          }
+        />
+      )}
     </div>
   );
 };

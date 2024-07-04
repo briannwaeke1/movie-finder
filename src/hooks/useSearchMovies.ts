@@ -8,13 +8,22 @@ export const useSearchMovies = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [debouncedSearchQuery] = useDebounce(searchQuery, 500);
+  const [pageNum, setPageNum] = useState(1);
+  const [totalPages, setTotalPages] = useState(0);
+  const [totalResults, setTotalResults] = useState(0);
 
   useEffect(() => {
     const source = axios.CancelToken.source();
     const fetchMovies = async () => {
       try {
-        const movies = await getMoviesResults(debouncedSearchQuery, source);
-        setMovies(movies);
+        const movies = await getMoviesResults(
+          debouncedSearchQuery,
+          source,
+          pageNum
+        );
+        setMovies(movies.results);
+        setTotalPages(movies.total_pages);
+        setTotalResults(movies.total_results);
         setError(null);
       } catch (error) {
         if (axios.isCancel(error)) {
@@ -28,7 +37,16 @@ export const useSearchMovies = () => {
     } else {
       setMovies([]);
     }
-  }, [debouncedSearchQuery]);
+  }, [debouncedSearchQuery, pageNum]);
 
-  return { movies, searchQuery, setSearchQuery, error };
+  return {
+    movies,
+    searchQuery,
+    setSearchQuery,
+    error,
+    pageNum,
+    setPageNum,
+    totalPages,
+    totalResults,
+  };
 };
