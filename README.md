@@ -1,30 +1,21 @@
-# React + TypeScript + Vite
+# StepStone TakeHome React Assignment
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Local Setup Instructions
 
-Currently, two official plugins are available:
+1. Clone repository
+2. Rename the .env.example file (will be in the root of the project) to .env and set the env variable to 67ce01b7bc96a6caf9dc4731a6cedfd7
+3. Run the following script in terminal: npm install
+4. Run the following script in terminal: npm run start
+5. Navigate to http://localhost:5173 in your browser
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The App should be good to go!
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+# Requirements
+1. Search for movies by name and display results
+2. Toggle "Watched Movie" button (Persisting the marking between searches is not required.) - Click on the play icon on the Movie Card
+3. Display "Overview" and "Release Date" - Click on the information icon on the Movie Card
+4. Pagination
 
-- Configure the top-level `parserOptions` property like this:
+https://github.com/briannwaeke1/stepstone-takehome/assets/94656081/c1a2c542-272f-4bf4-916d-c8b47318c69c
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
