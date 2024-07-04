@@ -14,6 +14,7 @@ export const useSearchMovies = () => {
 
   useEffect(() => {
     const source = axios.CancelToken.source();
+
     const fetchMovies = async () => {
       try {
         const movies = await getMoviesResults(
@@ -38,6 +39,10 @@ export const useSearchMovies = () => {
       setMovies([]);
     }
   }, [debouncedSearchQuery, pageNum]);
+
+  useEffect(() => {
+    setPageNum(1);
+  }, [searchQuery]);
 
   return {
     movies,
