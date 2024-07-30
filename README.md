@@ -1,5 +1,4 @@
-# StepStone TakeHome React Assignment
-
+# MovieSearch
 # Local Setup Instructions
 
 1. Clone repository
